@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>华丰资管RWA大宗贸易解决方案 - 完整商业计划书</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #ff6b6b 0%, #ffa726 100%);
+            --success-gradient: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+            --accent-gradient: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            --dark-gradient: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            --light-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            
+            --text-primary: #2d3748;
+            --text-secondary: #4a5568;
+            --text-light: #718096;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f7fafc;
+            --bg-tertiary: #edf2f7;
+            
+            --border-light: #e2e8f0;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --shadow-xl: 0 35px 60px -12px rgba(0, 0, 0, 0.3);
+            
+            --radius-sm: 0.5rem;
+            --radius-md: 1rem;
+            --radius-lg: 1.5rem;
+            --radius-xl: 2rem;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: var(--bg-secondary);
+            overflow-x: hidden;
+            opacity: 1;
+            font-size: 16px;
+            word-wrap: break-word;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* Navbar */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+            white-space: nowrap;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+            white-space: nowrap;
+        }
+        
+        .nav-links a:hover {
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gradient);
+            transition: width 0.3s ease;
+            border-radius: 1px;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: var(--primary-gradient);
+            display: flex;
+            align-items: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            padding: 120px 0 60px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.1)" points="0,1000 1000,800 1000,1000"/><polygon fill="rgba(255,255,255,0.05)" points="0,800 1000,600 1000,800 0,1000"/></svg>') no-repeat;
+            background-size: cover;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 900;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            word-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .hero .subtitle {
+            font-size: clamp(1rem, 2vw, 1.4rem);
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            font-weight: 300;
+            line-height: 1.6;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .problem-statement {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            margin: 3rem auto;
+            max-width: 900px;
+            box-shadow: var(--shadow-xl);
+            text-align: left;
+        }
+        
+        .problem-statement h3 {
+            font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+        }
+        
+        .problem-statement p {
+            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        
+        .highlight-number {
+            font-size: 1.3em;
+            font-weight: 900;
+            color: #ffd700;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+        
+        /* Main Content */
+        .main-content {
+            background: var(--bg-primary);
+            margin-top: -100px;
+            border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+            position: relative;
+            z-index: 10;
+            padding: 120px 0 80px;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .section {
+            padding: 6rem 0;
+            position: relative;
+        }
+        
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Cards */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+        
+        .card {
+            background: var(--bg-primary);
+            padding: 3rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-light);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary-gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: transparent;
+        }
+        
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .card-header {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 1.2rem;
+            background: var(--bg-secondary);
+            border-radius: var(--radius-md);
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+        
+        .metric:hover {
+            background: var(--bg-tertiary);
+            transform: translateX(4px);
+        }
+        
+        .metric-label {
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        
+        .metric-value {
+            font-weight: 800;
+            color: #667eea;
+            font-size: 1.1rem;
+        }
+        
+        /* Feature Cards */
+        .feature-card {
+            background: var(--bg-primary);
+            padding: 3rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-light);
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--accent-gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+        
+        .feature-card:hover::before {
+            opacity: 0.05;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .feature-card > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+        
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+        
+        .feature-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        /* Section Variants */
+        .section-primary {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: var(--radius-xl);
+            margin: 4rem 0;
+            padding: 4rem;
+            border: 1px solid var(--border-light);
+        }
+        
+        .section-success {
+            background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%);
+            border-radius: var(--radius-xl);
+            margin: 4rem 0;
+            padding: 4rem;
+            border: 1px solid #9ae6b4;
+        }
+        
+        .section-warning {
+            background: linear-gradient(135deg, #fffbeb 0%, #fef5e7 100%);
+            border-radius: var(--radius-xl);
+            margin: 4rem 0;
+            padding: 4rem;
+            border: 1px solid #f6e05e;
+        }
+        
+        .section-info {
+            background: linear-gradient(135deg, #ebf8ff 0%, #e0f4ff 100%);
+            border-radius: var(--radius-xl);
+            margin: 4rem 0;
+            padding: 4rem;
+            border: 1px solid #7dd3fc;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: var(--dark-gradient);
+            color: white;
+            text-align: center;
+            padding: 8rem 2rem;
+            border-radius: var(--radius-xl);
+            margin: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            background-size: 50px 50px;
+            animation: float 20s linear infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .cta-section h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            background: var(--light-gradient);
+            color: white;
+            padding: 1.5rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--bg-primary);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .data-table th {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 1.5rem;
+            font-weight: 600;
+            text-align: left;
+        }
+        
+        .data-table td {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-light);
+            transition: background 0.3s ease;
+        }
+        
+        .data-table tr:hover td {
+            background: var(--bg-secondary);
+        }
+        
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                padding: 100px 0 40px;
+                min-height: 80vh;
+            }
+            
+            .hero-content {
+                padding: 0 1rem;
+            }
+            
+            .problem-statement {
+                padding: 1.5rem;
+                margin: 2rem auto;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .card {
+                padding: 2rem;
+            }
+            
+            .section {
+                padding: 4rem 0;
+            }
+            
+            .section-primary,
+            .section-success,
+            .section-warning,
+            .section-info {
+                padding: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                padding: 80px 0 30px;
+                min-height: 70vh;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+                line-height: 1.3;
+            }
+            
+            .hero .subtitle {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .problem-statement {
+                padding: 1rem;
+                margin: 1.5rem auto;
+            }
+            
+            .main-content {
+                margin-top: -50px;
+                padding: 80px 0 40px;
+            }
+            
+            .card {
+                padding: 1.5rem;
+            }
+        }
+        
+        /* Animation classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.6s ease;
+        }
+        
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.6s ease;
+        }
+        
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">华丰资管 RWA</div>
+                <ul class="nav-links">
+                    <li><a href="#executive">执行摘要</a></li>
+                    <li><a href="#problem">问题分析</a></li>
+                    <li><a href="#solution">解决方案</a></li>
+                    <li><a href="#revenue">收益模型</a></li>
+                    <li><a href="#partnership">战略合作</a></li>
+                    <li><a href="#implementation">实施计划</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="fade-in">华丰资管RWA大宗贸易解决方案</h1>
+                <p class="subtitle fade-in">重塑全球大宗贸易支付生态 • 释放万亿级市场价值</p>
+                
+                <div class="problem-statement fade-in">
+                    <h3>🎯 核心价值主张</h3>
+                    <p>将大宗贸易支付周期从<span class="highlight-number">3-15天</span>缩短至<span class="highlight-number">24小时内</span></p>
+                    <p>基于McKinsey 2024预测：抢占<span class="highlight-number">$2万亿</span>全球RWA市场先机</p>
+                    <p>为投资者提供<span class="highlight-number">年化8-20%</span>稳健收益，华丰净利润率<span class="highlight-number">65-86%</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="main-content">
+        <div class="container">
+            
+            <section id="executive" class="section">
+                <h2 class="section-title fade-in">项目执行摘要</h2>
+                <p class="section-subtitle fade-in">全球首个专注大宗商品贸易的RWA代币化支付平台</p>
+                
+                <div class="section-info">
+                    <div class="content-grid">
+                        <div class="card slide-in-left">
+                            <div class="card-header">🎯 项目定位</div>
+                            <p>全球首个专注大宗商品贸易的RWA代币化支付平台，解决传统银行支付周期过长的核心痛点</p>
+                        </div>
+                        
+                        <div class="card slide-in-right">
+                            <div class="card-header">💰 市场机遇</div>
+                            <div class="metric">
+                                <span class="metric-label">全球RWA市场规模</span>
+                                <span class="metric-value">$2万亿(2030)</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">年复合增长率</span>
+                                <span class="metric-value">75%</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">中国大宗贸易额</span>
+                                <span class="metric-value">数万亿人民币</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card slide-in-left">
+                            <div class="card-header">🏆 竞争优势</div>
+                            <p>• 香港SFC全牌照（1、4、9类）</p>
+                            <p>• 零资本投入的纯服务收费模式</p>
+                            <p>• 与HashKey Group战略合作</p>
+                            <p>• 真实资产锚定，非投机性代币</p>
+                        </div>
+                        
+                        <div class="card slide-in-right">
+                            <div class="card-header">📈 财务预测</div>
+                            <div class="metric">
+                                <span class="metric-label">第一年交易量</span>
+                                <span class="metric-value">$24亿</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">第三年交易量</span>
+                                <span class="metric-value">$120亿</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-label">第三年净利润</span>
+                                <span class="metric-value">$1.55亿</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="problem" class="section">
+                <h2 class="section-title fade-in">市场问题深度分析</h2>
+                <p class="section-subtitle fade-in">大宗贸易支付生态面临的三大核心挑战</p>
+                
+                <div class="section-warning">
+                    <h3 style="color: #d97706; margin-bottom: 3rem; text-align: center; font-size: 2rem; font-weight: 800;">🚨 大宗贸易支付危机现状</h3>
+                    
+                    <div class="content-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">💥</div>
+                            <h4 class="feature-title" style="color: #d97706;">支付周期过长</h4>
+                            <div class="feature-description">
+                                <p>• 传统银行：3-15天处理周期</p>
+                                <p>• 国企风控：大连20亿损失后全面收紧</p>
+                                <p>• 供应商困境：资金周转压力巨大</p>
+                                <p>• 市场影响：中国前4月铝矾土进口2200万吨受阻</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">🌍</div>
+                            <h4 class="feature-title" style="color: #d97706;">外汇制度限制</h4>
+                            <div class="feature-description">
+                                <p>• 非洲现状：90-99%交易已包含USDT选项</p>
+                                <p>• 汇率贬值：加纳、尼日利亚本币半年贬值20%</p>
+                                <p>• 资金困境：尼日利亚化肥贸易收入无法回流</p>
+                                <p>• 政策壁垒：各国外汇管制严格限制</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">🏦</div>
+                            <h4 class="feature-title" style="color: #d97706;">传统金融工具局限</h4>
+                            <div class="feature-description">
+                                <p>• 开证困难：国企风控同质化，要求苛刻</p>
+                                <p>• 民企劣势：基本无法获得信用证支持</p>
+                                <p>• 操作缓慢：上游不认可传统金融工具</p>
+                                <p>• 欺诈风险：美国西雅图团队专门套取中国资金</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="solution" class="section">
+                <h2 class="section-title fade-in">华丰RWA解决方案</h2>
+                <p class="section-subtitle fade-in">基于真实资产锚定的创新支付生态</p>
+                
+                <div class="section-success">
+                    <h3 style="color: #059669; margin-bottom: 3rem; text-align: center; font-size: 2rem; font-weight: 800;">⚡ 核心解决方案架构</h3>
+                    
+                    <div style="background: white; padding: 3rem; border-radius: var(--radius-lg); margin-bottom: 3rem; border: 1px solid #86efac; box-shadow: var(--shadow-md);">
+                        <h4 style="color: #059669; margin-bottom: 2rem; text-align: center; font-size: 1.8rem;">🔄 华丰RWA交易流程</h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                            <div class="feature-card" style="background: #f0fdf4;">
+                                <div class="feature-icon">1️⃣</div>
+                                <h5 class="feature-title" style="color: #059669;">订单确认</h5>
+                                <p class="feature-description">国企提交大宗贸易订单，华丰风控审核，发行等值RWA代币</p>
+                            </div>
+                            
+                            <div class="feature-card" style="background: #f0fdf4;">
+                                <div class="feature-icon">2️⃣</div>
+                                <h5 class="feature-title" style="color: #059669;">即时支付</h5>
+                                <p class="feature-description">24小时内，RWA代币池向供应商支付等值稳定币</p>
+                            </div>
+                            
+                            <div class="feature-card" style="background: #f0fdf4;">
+                                <div class="feature-icon">3️⃣</div>
+                                <h5 class="feature-title" style="color: #059669;">绿色运输</h5>
+                                <p class="feature-description">氢能重卡车队负责绿色物流，GPS全程跟踪</p>
+                            </div>
+                            
+                            <div class="feature-card" style="background: #f0fdf4;">
+                                <div class="feature-icon">4️⃣</div>
+                                <h5 class="feature-title" style="color: #059669;">验收结算</h5>
+                                <p class="feature-description">国企验收货物，向华丰付款，RWA代币自动销毁</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-grid">
+                        <div class="card">
+                            <h4 class="card-header" style="color: #059669;">🏦 华丰资管牌照优势</h4>
+                            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 2rem;">
+                                <div class="feature-card" style="background: #f0fdf4; padding: 1.5rem;">
+                                    <div style="font-size: 1.5rem; font-weight: 900; color: #22c55e;">第1类</div>
+                                    <small>证券交易</small>
+                                </div>
+                                <div class="feature-card" style="background: #f0fdf4; padding: 1.5rem;">
+                                    <div style="font-size: 1.5rem; font-weight: 900; color: #22c55e;">第4类</div>
+                                    <small>证券咨询</small>
+                                </div>
+                                <div class="feature-card" style="background: #f0fdf4; padding: 1.5rem;">
+                                    <div style="font-size: 1.5rem; font-weight: 900; color: #22c55e;">第9类</div>
+                                    <small>资产管理</small>
+                                </div>
+                                <div class="feature-card" style="background: #f0fdf4; padding: 1.5rem;">
+                                    <div style="font-size: 1.5rem; font-weight: 900; color: #22c55e;">RWA</div>
+                                    <small>代币化合规</small>
+                                </div>
+                            </div>
+                            <p style="color: #059669;">香港SFC完整牌照覆盖，RWA代币化属于资产管理范畴</p>
+                        </div>
+                        
+                        <div class="card">
+                            <h4 class="card-header" style="color: #059669;">💰 零资本商业模式</h4>
+                            <div class="metric">
+                                <span>华丰资本投入</span>
+                                <span style="font-weight: 900; color: #22c55e;">$0</span>
+                            </div>
+                            <div class="metric">
+                                <span>服务收费率</span>
+                                <span style="font-weight: 900; color: #22c55e;">1.5-2%</span>
+                            </div>
+                            <div class="metric">
+                                <span>预期ROI</span>
+                                <span style="font-weight: 900; color: #22c55e;">无限大</span>
+                            </div>
+                            <p style="color: #059669; margin-top: 1rem;">纯服务收费模式，无需大额资本投入</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="revenue" class="section">
+                <h2 class="section-title fade-in">投资者收益模型</h2>
+                <p class="section-subtitle fade-in">四大收益来源确保年化8-20%稳健回报</p>
+                
+                <div class="section-primary">
+                    <h3 style="color: #6366f1; margin-bottom: 3rem; text-align: center; font-size: 2rem; font-weight: 800;">💰 四大收益来源</h3>
+                    
+                    <div class="content-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">1️⃣</div>
+                            <h4 class="feature-title" style="color: #6366f1;">华丰服务费分成</h4>
+                            <div class="feature-description">
+                                <p>• 华丰向国企收取1.5-2%交易服务费</p>
+                                <p>• 投资者获得服务费的70-80%</p>
+                                <p>• 基础年化收益：<strong>4-6%</strong></p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">2️⃣</div>
+                            <h4 class="feature-title" style="color: #6366f1;">资金占用收益</h4>
+                            <div class="feature-description">
+                                <p>• 资金平均占用期7-15天</p>
+                                <p>• 年化资金使用费6-8%</p>
+                                <p>• 高周转率放大收益效应</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">3️⃣</div>
+                            <h4 class="feature-title" style="color: #6366f1;">汇率套利收益</h4>
+                            <div class="feature-description">
+                                <p>• 人民币/美元汇差收益</p>
+                                <p>• USDT/HKDR价差套利</p>
+                                <p>• 年化额外收益：<strong>1-3%</strong></p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">4️⃣</div>
+                            <h4 class="feature-title" style="color: #6366f1;">规模效应分红</h4>
+                            <div class="feature-description">
+                                <p>• 交易量达标奖励</p>
+                                <p>• 年度超额收益分配</p>
+                                <p>• 潜在年化：<strong>2-5%</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: white; padding: 3rem; border-radius: var(--radius-lg); margin-top: 3rem; border: 1px solid #c7d2fe; box-shadow: var(--shadow-md);">
+                        <h4 style="color: #6366f1; margin-bottom: 2rem; text-align: center; font-size: 1.8rem;">🎯 $5000万资金募集计划</h4>
+                        <div class="content-grid">
+                            <div class="feature-card" style="background: #f8fafc;">
+                                <h5 style="color: #6366f1; margin-bottom: 1rem;">🏦 机构投资者（60%）</h5>
+                                <div>• 保险公司：中国人寿、平安保险</div>
+                                <div>• 养老基金：全国社保基金</div>
+                                <div>• 银行理财：招商银行私银部</div>
+                                <div style="margin-top: 1rem; font-weight: 700; color: #6366f1;">目标：$3000万</div>
+                            </div>
+                            
+                            <div class="feature-card" style="background: #f8fafc;">
+                                <h5 style="color: #6366f1; margin-bottom: 1rem;">👑 家族办公室（25%）</h5>
+                                <div>• 内地家族：制造业、地产家族</div>
+                                <div>• 香港家族：传统港商、金融世家</div>
+                                <div>• 海外华人：东南亚、北美华商</div>
+                                <div style="margin-top: 1rem; font-weight: 700; color: #6366f1;">目标：$1250万</div>
+                            </div>
+                            
+                            <div class="feature-card" style="background: #f8fafc;">
+                                <h5 style="color: #6366f1; margin-bottom: 1rem;">⚡ 对冲基金（15%）</h5>
+                                <div>• 香港基金：汇丰投资、渣打私银</div>
+                                <div>• 新加坡基金：淡马锡系、GIC系</div>
+                                <div>• 数字资产基金、量化基金</div>
+                                <div style="margin-top: 1rem; font-weight: 700; color: #6366f1;">目标：$750万</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="partnership" class="section">
+                <h2 class="section-title fade-in">与HashKey Group战略合作</h2>
+                <p class="section-subtitle fade-in">三层合作架构，打造RWA生态领导地位</p>
+                
+                <div class="section-info">
+                    <h3 style="color: #0ea5e9; margin-bottom: 3rem; text-align: center; font-size: 2rem; font-weight: 800;">🤝 三层合作架构</h3>
+                    
+                    <div class="content-grid">
+                        <div class="card">
+                            <h4 class="card-header" style="color: #0ea5e9;">🔧 技术合作</h4>
+                            <div>• HashKey Tokenisation提供技术平台</div>
+                            <div>• 华丰提供真实资产和业务场景</div>
+                            <div>• 共同申请香港SFC RWA牌照</div>
+                            <div style="background: #e0f2fe; padding: 1rem; border-radius: var(--radius-md); margin-top: 1rem;">
+                                <strong>技术服务费：</strong>HashKey收取20%技术费
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <h4 class="card-header" style="color: #0ea5e9;">💎 投资合作</h4>
+                            <div>• HashKey Capital领投$1500万</div>
+                            <div>• 引入其他机构跟投</div>
+                            <div>• 获得8-15%年化收益</div>
+                            <div style="background: #e0f2fe; padding: 1rem; border-radius: var(--radius-md); margin-top: 1rem;">
+                                <strong>投资收益：</strong>年化$200-300万收益
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <h4 class="card-header" style="color: #0ea5e9;">📈 交易合作</h4>
+                            <div>• 华丰RWA代币HashKey PRO独家上市</div>
+                            <div>• 为机构投资者提供二级市场流动性</div>
+                            <div>• 增强HashKey交易所差异化优势</div>
+                            <div style="background: #e0f2fe; padding: 1rem; border-radius: var(--radius-md); margin-top: 1rem;">
+                                <strong>交易手续费：</strong>0.1-0.2%佣金收入
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: white; padding: 3rem; border-radius: var(--radius-lg); margin-top: 3rem; border: 1px solid #7dd3fc; box-shadow: var(--shadow-md);">
+                        <h4 style="color: #0ea5e9; margin-bottom: 2rem; text-align: center; font-size: 1.8rem;">🚀 肖风会感兴趣的原因</h4>
+                        <div class="content-grid">
+                            <div class="feature-card" style="background: #e0f2fe;">
+                                <h5 style="color: #0ea5e9; margin-bottom: 1rem;">战略契合度极高</h5>
+                                <div>• HashKey正在布局RWA代币化业务</div>
+                                <div>• 与博时国际合作说明看重传统金融</div>
+                                <div>• 华丰方案是现成的优质资产</div>
+                            </div>
+                            
+                            <div class="feature-card" style="background: #e0f2fe;">
+                                <h5 style="color: #0ea5e9; margin-bottom: 1rem;">商业价值巨大</h5>
+                                <div>• 大宗贸易市场万亿级规模</div>
+                                <div>• 稳定的收费模式（非投机）</div>
+                                <div>• HashKey各业务线都能受益</div>
+                            </div>
+                            
+                            <div class="feature-card" style="background: #e0f2fe;">
+                                <h5 style="color: #0ea5e9; margin-bottom: 1rem;">行业领导地位</h5>
+                                <div>• 成为亚洲RWA龙头</div>
+                                <div>• 与Coinbase等国际巨头竞争</div>
+                                <div>• 建立RWA生态护城河</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title fade-in">RWA代币化技术架构</h2>
+                <p class="section-subtitle fade-in">基于行业最佳实践的安全可靠技术实施</p>
+                
+                <div class="section-warning">
+                    <h3 style="color: #ea580c; margin-bottom: 3rem; text-align: center; font-size: 2rem; font-weight: 800;">🔗 技术实施框架</h3>
+                    
+                    <div style="background: white; padding: 3rem; border-radius: var(--radius-lg); margin-bottom: 3rem; border: 1px solid #fed7aa; box-shadow: var(--shadow-md);">
+                        <h4 style="color: #ea580c; margin-bottom: 2rem; text-align: center; font-size: 1.8rem;">🏗️ 代币化流程设计</h4>
+                        <div class="content-grid">
+                            <div class="feature-card" style="background: #fff7ed;">
+                                <h5 style="color: #ea580c; margin-bottom: 1rem;">资产确权与估值</h5>
+                                <div>• 大宗商品订单确认与锁定</div>
+                                <div>• 第三方评估机构价值认定</div>
+                                <div>• 法律文件确权与公证</div>
+                                <div>• 保险公司承保覆盖</div>
+                            </div>
+                            
+                            <div class="feature-card" style="background: #fff7ed;">
+                                <h5 style="color: #ea580c; margin-bottom: 1rem;">智能合约部署</h5>
+                                <div>• EVM兼容链（Ethereum/Polygon）</div>
+                                <div>• 1:1资产锚定机制</div>
+                                <div>• 自动销毁条件触发</div>
+                                <div>• Certik安全审计认证</div>
+                            </div>
+                            
+                            <div class="feature-card" style="background: #fff7ed;">
+                                <h5 style="color: #ea580c; margin-bottom: 1rem;">代币发行与流通</h5>
+                                <div>• ERC-20标准代币发行</div>
+                                <div>• KYC/AML合规验证</div>
+                                <div>• 机构投资者白名单</div>
+                                <div>• 二级市场流动性支持</div>
+                            </div>
+                            
+                            <div class="feature-card" style="background: #fff7ed;">
+                                <h5 style="color: #ea580c; margin-bottom: 1rem;">赎回与销毁</h5>
+                                <div>• 商品交付完成触发</div>
+                                <div>• 国企付款确认机制</div>
+                                <div>• 代币自动销毁执行</div>
+                                <div>• 资金池利润分配</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: white; padding: 3rem; border-radius: var(--radius-lg); border: 1px solid #fed7aa; box-shadow: var(--shadow-md);">
+                        <h4 style="color: #ea580c; margin-bottom: 2rem; text-align: center; font-size: 1.8rem;">🔐 技术安全保障</h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+                            <div class="feature-card" style="background: #fff7ed;">
+                                <div class="feature-icon">🛡️</div>
+                                <h6 style="color: #ea580c; margin-bottom: 0.5rem;">多重签名</h6>
+                                <small>3/5多重签名控制</small>
+                            </div>
+                            
+                            <div class="feature-card" style="background: #fff7ed;">
+                                <div class="feature-icon">🔍</div>
+                                <h6 style="color: #ea580c; margin-bottom: 0.5rem;">安全审计</h6>
+                                <small>Certik + Quantstamp双审计</small>
+                            </div>
+                            
+                            <div class="feature-card" style="background: #fff7ed;">
+                                <div class="feature-icon">📊</div>
+                                <h6 style="color: #ea580c; margin-bottom: 0.5rem;">实时监控</h6>
+                                <small>7x24小时系统监控</small>
+                            </div>
+                            
+                            <div class="feature-card" style="background: #fff7ed;">
+                                <div class="feature-icon">🔄</div>
+                                <h6 style="color: #ea580c; margin-bottom: 0.5rem;">备份系统</h6>
+                                <small>多链备份机制</small>
+                            </div>
+                            
+                            <div class="feature-card" style="background: #fff7ed;">
+                                <div class="feature-icon">🏦</div>
+                                <h6 style="color: #ea580c; margin-bottom: 0.5rem;">资金托管</h6>
+                                <small>银行级托管服务</small>
+                            </div>
+                            
+                            <div class="feature-card" style="background: #fff7ed;">
+                                <div class="feature-icon">⚠️</div>
+                                <h6 style="color: #ea580c; margin-bottom: 0.5rem;">应急预案</h6>
+                                <small>完整应急响应体系</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title fade-in">财务预测与风险评估</h2>
+                <p class="section-subtitle fade-in">基于谨慎预期的三年增长模型</p>
+                
+                <div class="section-info">
+                    <h3 style="color: #0369a1; margin-bottom: 3rem; text-align: center; font-size: 2rem; font-weight: 800;">📊 三年财务预测模型</h3>
+                    
+                    <div style="background: white; padding: 3rem; border-radius: var(--radius-lg); margin-bottom: 3rem; border: 1px solid #7dd3fc; box-shadow: var(--shadow-md);">
+                        <h4 style="color: #0369a1; margin-bottom: 2rem; text-align: center; font-size: 1.8rem;">💰 收入与利润预测（万美元）</h4>
+                        <div style="overflow-x: auto;">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>财务指标</th>
+                                        <th>第一年</th>
+                                        <th>第二年</th>
+                                        <th>第三年</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="font-weight: 700;">交易总量</td>
+                                        <td style="text-align: center;">24,000</td>
+                                        <td style="text-align: center;">60,000</td>
+                                        <td style="text-align: center;">120,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight: 700;">服务费收入</td>
+                                        <td style="text-align: center;">3,600</td>
+                                        <td style="text-align: center;">9,000</td>
+                                        <td style="text-align: center;">18,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight: 700;">运营成本</td>
+                                        <td style="text-align: center;">2,200</td>
+                                        <td style="text-align: center;">2,200</td>
+                                        <td style="text-align: center;">2,500</td>
+                                    </tr>
+                                    <tr style="background: #e0f2fe;">
+                                        <td style="font-weight: 900;">净利润</td>
+                                        <td style="text-align: center; font-weight: 900; color: #22c55e;">1,400</td>
+                                        <td style="text-align: center; font-weight: 900; color: #22c55e;">6,800</td>
+                                        <td style="text-align: center; font-weight: 900; color: #22c55e;">15,500</td>
+                                    </tr>
+                                    <tr style="background: #e0f2fe;">
+                                        <td style="font-weight: 900;">净利润率</td>
+                                        <td style="text-align: center; font-weight: 900; color: #22c55e;">39%</td>
+                                        <td style="text-align: center; font-weight: 900; color: #22c55e;">76%</td>
+                                        <td style="text-align: center; font-weight: 900; color: #22c55e;">86%</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight: 700;">投资者分红</td>
+                                        <td style="text-align: center;">420</td>
+                                        <td style="text-align: center;">1,020</td>
+                                        <td style="text-align: center;">1,550</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="content-grid">
+                        <div class="card">
+                            <h4 class="card-header" style="color: #0369a1;">📈 关键假设条件</h4>
+                            <div>• 服务费率维持1.5-2%</div>
+                            <div>• 客户增长：5家→20家→50家</div>
+                            <div>• 平均单笔交易：500万美元</div>
+                            <div>• 资金周转率：每月2-3次</div>
+                            <div>• 坏账率控制在0.5%以内</div>
+                        </div>
+                        
+                        <div class="card">
+                            <h4 class="card-header" style="color: #0369a1;">🎯 敏感性分析</h4>
+                            <div>• 交易量±20%：净利润影响±18%</div>
+                            <div>• 服务费率±0.5%：净利润影响±25%</div>
+                            <div>• 运营成本±30%：净利润影响±8%</div>
+                            <div>• 资金成本±2%：投资者收益影响±12%</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #fffbeb, #fef3c7); padding: 4rem; border-radius: 30px; margin: 4rem 0; border: 2px solid #f59e0b;">
+                    <h3 style="color: #92400e; margin-bottom: 3rem; text-align: center; font-size: 2rem;">⚠️ 风险评估与应对策略</h3>
+                    
+                    <div class="content-grid">
+                        <div style="background: white; padding: 3rem; border-radius: 20px; border-left: 6px solid #ef4444;">
+                            <h4 style="color: #dc2626; margin-bottom: 1.5rem;">🔴 高风险因素</h4>
+                            <div style="margin-bottom: 1rem;">
+                                <strong>监管政策风险</strong><br>
+                                <small>香港金管局RWA政策变化，内地外汇管制收紧</small>
+                            </div>
+                            <div style="background: #fef2f2; padding: 1rem; border-radius: 10px;">
+                                <strong>应对：</strong>法律顾问团队，政策追踪机制，提前合规申请
+                            </div>
+                        </div>
+                        
+                        <div style="background: white; padding: 3rem; border-radius: 20px; border-left: 6px solid #f59e0b;">
+                            <h4 style="color: #d97706; margin-bottom: 1.5rem;">🟡 中等风险因素</h4>
+                            <div style="margin-bottom: 1rem;">
+                                <strong>流动性风险</strong><br>
+                                <small>代币池资金不足支持大额订单</small>
+                            </div>
+                            <div style="background: #fffbeb; padding: 1rem; border-radius: 10px;">
+                                <strong>应对：</strong>银行授信额度，多元化资金来源，动态调整机制
+                            </div>
+                        </div>
+                        
+                        <div style="background: white; padding: 3rem; border-radius: 20px; border-left: 6px solid #22c55e;">
+                            <h4 style="color: #16a34a; margin-bottom: 1.5rem;">🟢 低风险因素</h4>
+                            <div style="margin-bottom: 1rem;">
+                                <strong>技术风险</strong><br>
+                                <small>智能合约漏洞，区块链拥堵</small>
+                            </div>
+                            <div style="background: #f0fdf4; padding: 1rem; border-radius: 10px;">
+                                <strong>应对：</strong>Certik安全审计，备用系统，7x24监控
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: white; padding: 3rem; border-radius: 20px; margin-top: 3rem; border: 2px solid #f59e0b;">
+                        <h4 style="color: #92400e; margin-bottom: 2rem; text-align: center;">🛡️ 风险缓释措施</h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                            <div style="background: #fffbeb; padding: 2rem; border-radius: 15px; text-align: center;">
+                                <div style="font-size: 2rem; margin-bottom: 1rem;">🏦</div>
+                                <h6 style="color: #92400e; margin-bottom: 0.5rem;">保险覆盖</h6>
+                                <small>全额交易保险，最高$1亿覆盖</small>
+                            </div>
+                            
+                            <div style="background: #fffbeb; padding: 2rem; border-radius: 15px; text-align: center;">
+                                <div style="font-size: 2rem; margin-bottom: 1rem;">📊</div>
+                                <h6 style="color: #92400e; margin-bottom: 0.5rem;">实时监控</h6>
+                                <small>全链路风险监测预警系统</small>
+                            </div>
+                            
+                            <div style="background: #fffbeb; padding: 2rem; border-radius: 15px; text-align: center;">
+                                <div style="font-size: 2rem; margin-bottom: 1rem;">⚖️</div>
+                                <h6 style="color: #92400e; margin-bottom: 0.5rem;">法律保障</h6>
+                                <small>国际仲裁，多重法律管辖</small>
+                            </div>
+                            
+                            <div style="background: #fffbeb; padding: 2rem; border-radius: 15px; text-align: center;">
+                                <div style="font-size: 2rem; margin-bottom: 1rem;">💰</div>
+                                <h6 style="color: #92400e; margin-bottom: 0.5rem;">准备金</h6>
+                                <small>5%风险准备金池</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="implementation" class="section">
+                <h2 class="section-title fade-in">三阶段实施计划</h2>
+                
+                <div style="background: linear-gradient(135deg, #f8fafc, #e2e8f0); padding: 4rem; border-radius: 30px; margin: 4rem 0; border: 2px solid #64748b;">
+                    <div class="content-grid">
+                        <div style="background: linear-gradient(135deg, #eff6ff, #dbeafe); padding: 3rem; border-radius: 20px; border: 2px solid #3b82f6;">
+                            <h3 style="color: #1d4ed8; margin-bottom: 2rem;">Phase 1: 基础建设期</h3>
+                            <div style="margin-bottom: 2rem;">
+                                <div style="font-weight: 700;">时间：0-6个月</div>
+                                <div style="font-weight: 700;">目标：建立基础设施</div>
+                            </div>
+                            <div class="metric">
+                                <span>月交易量</span>
+                                <span style="font-weight: 700;">$500万</span>
+                            </div>
+                            <div class="metric">
+                                <span>客户数量</span>
+                                <span style="font-weight: 700;">3-5家国企</span>
+                            </div>
+                            <div class="metric">
+                                <span>代币池规模</span>
+                                <span style="font-weight: 700;">$5000万</span>
+                            </div>
+                        </div>
+                        
+                        <div style="background: linear-gradient(135deg, #f0fdf4, #dcfce7); padding: 3rem; border-radius: 20px; border: 2px solid #22c55e;">
+                            <h3 style="color: #15803d; margin-bottom: 2rem;">Phase 2: 规模扩张期</h3>
+                            <div style="margin-bottom: 2rem;">
+                                <div style="font-weight: 700;">时间：6-18个月</div>
+                                <div style="font-weight: 700;">目标：业务规模化</div>
+                            </div>
+                            <div class="metric">
+                                <span>年交易量</span>
+                                <span style="font-weight: 700;">$60亿</span>
+                            </div>
+                            <div class="metric">
+                                <span>客户数量</span>
+                                <span style="font-weight: 700;">15-20家</span>
+                            </div>
+                            <div class="metric">
+                                <span>净利润</span>
+                                <span style="font-weight: 700;">$6800万</span>
+                            </div>
+                        </div>
+                        
+                        <div style="background: linear-gradient(135deg, #faf5ff, #f3e8ff); padding: 3rem; border-radius: 20px; border: 2px solid #8b5cf6;">
+                            <h3 style="color: #7c3aed; margin-bottom: 2rem;">Phase 3: 行业领导期</h3>
+                            <div style="margin-bottom: 2rem;">
+                                <div style="font-weight: 700;">时间：18个月+</div>
+                                <div style="font-weight: 700;">目标：全球领导者</div>
+                            </div>
+                            <div class="metric">
+                                <span>年交易量</span>
+                                <span style="font-weight: 700;">$120亿+</span>
+                            </div>
+                            <div class="metric">
+                                <span>市场份额</span>
+                                <span style="font-weight: 700;">20%+</span>
+                            </div>
+                            <div class="metric">
+                                <span>净利润</span>
+                                <span style="font-weight: 700;">$1.55亿</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: white; padding: 3rem; border-radius: 20px; margin-top: 3rem; border: 2px solid #64748b;">
+                        <h4 style="color: #334155; margin-bottom: 2rem; text-align: center;">🎯 30天内关键行动</h4>
+                        <div class="content-grid">
+                            <div style="background: #f8fafc; padding: 2rem; border-radius: 15px; border-left: 4px solid #3b82f6;">
+                                <h5 style="color: #334155; margin-bottom: 1rem;">📋 法律合规确认</h5>
+                                <p>与香港SFC正式沟通RWA业务许可</p>
+                            </div>
+                            
+                            <div style="background: #f8fafc; padding: 2rem; border-radius: 15px; border-left: 4px solid #22c55e;">
+                                <h5 style="color: #334155; margin-bottom: 1rem;">👥 技术团队组建</h5>
+                                <p>招聘区块链开发、智能合约专业人才</p>
+                            </div>
+                            
+                            <div style="background: #f8fafc; padding: 2rem; border-radius: 15px; border-left: 4px solid #fbbf24;">
+                                <h5 style="color: #334155; margin-bottom: 1rem;">💰 资金筹措</h5>
+                                <p>向机构投资者路演，目标$5000万</p>
+                            </div>
+                            
+                            <div style="background: #f8fafc; padding: 2rem; border-radius: 15px; border-left: 4px solid #8b5cf6;">
+                                <h5 style="color: #334155; margin-bottom: 1rem;">🤝 客户接洽</h5>
+                                <p>与3-5家大型国企建立合作意向</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>开启全球大宗贸易新时代</h2>
+                <p>华丰资管RWA解决方案 - 重塑支付效率，释放万亿市场价值</p>
+                <button class="cta-button" onclick="window.location.href='mailto:rwa@huafeng.hk'">
+                    立即启动战略合作
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // 确保页面内容立即可见
+        document.addEventListener('DOMContentLoaded', function() {
+            // 立即显示所有内容
+            const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
+            animatedElements.forEach(element => {
+                element.style.opacity = '1';
+                element.style.transform = 'none';
+                element.classList.add('visible');
+            });
+        });
+
+        // 平滑滚动导航
+        document.addEventListener('click', function(e) {
+            if (e.target.matches('a[href^="#"]')) {
+                e.preventDefault();
+                const target = document.querySelector(e.target.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // 确保页面完全加载后可见
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '1';
+            document.body.style.visibility = 'visible';
+        });
+    </script>
+</body>
+</html> 
